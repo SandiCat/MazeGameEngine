@@ -24,25 +24,24 @@ namespace MazeGameEngine
         public Mob()
             : base()
         {
-            Direction = MobDirection.Right;
+            Direction = MobDirection.Up;
+            Sprite.Origin = new Vector2(Sprite.Image.Width / 2, Sprite.Image.Height / 2);
         }
         public Mob(Vector2 position)
             : base(position)
         {
+            Direction = MobDirection.Up;
+            Sprite.Origin = new Vector2(Sprite.Image.Width / 2, Sprite.Image.Height / 2);
         }
         public Mob(Vector2 position, MobDirection direction)
             : base(position)
         {
-            Direction = direction;
+            ChangeDirectionAndImage(direction);
+            Sprite.Origin = new Vector2(Sprite.Image.Width / 2, Sprite.Image.Height / 2);
         }
 
 
         public MobDirection Direction = MobDirection.Right;
-
-        static public Texture2D TextureUp;
-        static public Texture2D TextureDown;
-        static public Texture2D TextureLeft;
-        static public Texture2D TextureRight;
 
         protected override void Update()
         {
@@ -55,19 +54,19 @@ namespace MazeGameEngine
 
             if (direction == MobDirection.Up)
             {
-                Sprite.Image = TextureUp;
+                Sprite.Rotation = Directions.Up;
             }
             else if (direction == MobDirection.Down)
             {
-                Sprite.Image = TextureDown;
+                Sprite.Rotation = Directions.Down;
             }
             else if (direction == MobDirection.Left)
             {
-                Sprite.Image = TextureLeft;
+                Sprite.Rotation = Directions.Left;
             }
             else if (direction == MobDirection.Right)
             {
-                Sprite.Image = TextureRight;
+                Sprite.Rotation = Directions.Right;
             }
         }
     }
