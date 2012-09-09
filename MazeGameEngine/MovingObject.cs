@@ -30,7 +30,7 @@ namespace MazeGameEngine
             StepAngle(angle, distance);
 
             bool ranIntoWall = false;
-            List<GameObject> solids = ObjectHolder.Objects.Where(obj => obj is SolidObject).ToList();
+            List<GameObject> solids = ObjectHolder.Objects.Where(obj => obj is SolidObject || obj is MovingObject).ToList();
             foreach (var solid in solids)
             {
                 if (this.IsRectangleColliding(solid))
