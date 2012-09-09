@@ -53,24 +53,7 @@ namespace MazeGameEngine
 
         private void UpdateWithMovable()
         {
-            //Calculate direction:
-
-            if (AssingedMob.Direction == MobDirection.Up)
-            {
-                Sprite.Rotation = Directions.Up;
-            }
-            else if (AssingedMob.Direction == MobDirection.Down)
-            {
-                Sprite.Rotation = Directions.Down;
-            }
-            else if (AssingedMob.Direction == MobDirection.Left)
-            {
-                Sprite.Rotation = Directions.Left;
-            }
-            else if (AssingedMob.Direction == MobDirection.Right)
-            {
-                Sprite.Rotation = Directions.Right;
-            }
+            Sprite.Rotation = Mob.MobDirectionToAngle(AssingedMob.Direction);
 
             //Transform rotation into direction:
             Vector2 up = new Vector2(0, -1);

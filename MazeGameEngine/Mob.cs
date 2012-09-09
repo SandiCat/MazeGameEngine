@@ -52,22 +52,29 @@ namespace MazeGameEngine
         {
             Direction = direction;
 
-            if (direction == MobDirection.Up)
+            Sprite.Rotation = MobDirectionToAngle(direction);
+        }
+
+        public static float MobDirectionToAngle(MobDirection direction)
+        {
+            if (direction == MobDirection.Left)
             {
-                Sprite.Rotation = Directions.Up;
-            }
-            else if (direction == MobDirection.Down)
-            {
-                Sprite.Rotation = Directions.Down;
-            }
-            else if (direction == MobDirection.Left)
-            {
-                Sprite.Rotation = Directions.Left;
+                return Directions.Left;
             }
             else if (direction == MobDirection.Right)
             {
-                Sprite.Rotation = Directions.Right;
+                return Directions.Right;
             }
+            else if (direction == MobDirection.Up)
+            {
+                return Directions.Up;
+            }
+            else if (direction == MobDirection.Down)
+            {
+                return Directions.Down;
+            }
+
+            return 0;
         }
     }
 }
