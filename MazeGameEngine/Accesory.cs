@@ -24,10 +24,11 @@ namespace MazeGameEngine
             : base(position)
         {
         }
-        public Accesory(Mob mob)
+        public Accesory(Mob mob, float rotation)
             : base()
         {
             AssingedMob = mob;
+            Sprite.Rotation = rotation;
             UpdateWithMovable();
         }
 
@@ -53,8 +54,6 @@ namespace MazeGameEngine
 
         private void UpdateWithMovable()
         {
-            Sprite.Rotation = Mob.MobDirectionToAngle(AssingedMob.Direction);
-
             //Transform rotation into direction:
             Vector2 up = new Vector2(0, -1);
             Matrix rotationMat = Matrix.CreateRotationZ(Sprite.Rotation);
